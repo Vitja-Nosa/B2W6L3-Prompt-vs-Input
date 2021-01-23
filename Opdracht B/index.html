@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Opdracht B</title>
+</head>
+	<body>
+		<input type="text" id="input">
+		<button id="button">Laat zien</button>
+		<h2 id="title">Piramide aflopend</h2>
+		<p id="text"></p>
+		<script>
+			var input = document.getElementById("input");
+			var button = document.getElementById("button");
+			var title = document.getElementById("title");
+			var text = document.getElementById("text");
+
+			var arrayNumbers = [];
+
+			input.value = "Voer een getal in:"
+			title.style.display = "none";
+
+			button.onclick = function(){
+				if (isNaN(input.value) || input.value <= 0) {
+					alert("Ongeldige invoer");
+				}
+				else {
+					title.style.display = "block";
+					text.innerHTML = "";
+					arrayNumbers = [];
+					for (i=0; i<=input.value; i++) {
+						arrayNumbers[i] = i;
+					}
+					text.innerHTML = "Array : " + arrayNumbers + "<br>";
+					for (i=0; i<=input.value; i++) {
+						text.innerHTML += arrayNumbers.join("") + "<br>";
+						arrayNumbers.splice(arrayNumbers.length-1);
+					}
+				}
+			}	
+		</script>
+	</body>
+</html>
